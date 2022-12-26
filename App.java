@@ -8,6 +8,8 @@ public class App {
         Tabuleiro.posicionarNavios(tabuleiro, 5);
         Tabuleiro.preencherTabuleiro(tabuleiro);
         Print.imprimirTabuleiro(tabuleiro);
+
+        System.out.println("Commit teste.");
      
     }
 
