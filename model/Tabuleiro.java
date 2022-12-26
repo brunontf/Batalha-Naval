@@ -1,15 +1,13 @@
 package model;
 
 import util.Util;
-import view.Print;
 
 public class Tabuleiro {
     private String[][] tabuleiro = new String[10][10];
 
-    Tabuleiro(){
+    public Tabuleiro(){
         posicionarNavios(5);
         preencherTabuleiro();
-        Print.imprimirTabuleiro(tabuleiro);
     }
 
     void posicionarNavios(int quantidadeNavios) {
