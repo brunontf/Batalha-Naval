@@ -1,17 +1,17 @@
 package model;
 
 import util.Util;
+import view.Print;
+
 
 public class Tabuleiro {
-    public String[][] getTabuleiro() {
-        return tabuleiro;
-    }
-
+    
     private String[][] tabuleiro = new String[10][10];
 
-    Tabuleiro(){
+    public Tabuleiro() {
         posicionarNavios(5);
         preencherTabuleiro();
+        Print.imprimirTabuleiro(tabuleiro);
     }
 
     void posicionarNavios(int quantidadeNavios) {
@@ -35,5 +35,10 @@ public class Tabuleiro {
         }
     }
 
-
+    public String[][] getTabuleiro() {
+        return tabuleiro;
+    }
+    public void setShoot(int line, int column, String shoot) {
+        this.tabuleiro[line][column] = shoot;
+    }
 }
