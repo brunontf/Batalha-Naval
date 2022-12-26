@@ -1,17 +1,18 @@
 package model;
 
 import util.Util;
+import view.Print;
 
 public class Tabuleiro {
-    public static void preencherTabuleiro(String [][] tabuleiro) {
-        for (int i = 0; i < tabuleiro.length; i++) {
-            for (int j = 0; j < tabuleiro.length; j++) {
-                if(tabuleiro[i][j] != "+")
-                tabuleiro[i][j]="~";
-            }
-        }
+    private String[][] tabuleiro = new String[10][10];
+
+    Tabuleiro(){
+        posicionarNavios(5);
+        preencherTabuleiro();
+        Print.imprimirTabuleiro(tabuleiro);
     }
-    public static void posicionarNavios(String[][] tabuleiro,int quantidadeNavios) {
+
+    void posicionarNavios(int quantidadeNavios) {
         for (int i = 0; i < quantidadeNavios; i++) {
             int linhaAleatoria = Util.intAleatorio(0,tabuleiro.length);
             int colunaAleatoria = Util.intAleatorio(0,tabuleiro.length);
@@ -22,6 +23,16 @@ public class Tabuleiro {
             }
         }
     }
-
     
+    void preencherTabuleiro() {
+        for (int i = 0; i < tabuleiro.length; i++) {
+            for (int j = 0; j < tabuleiro.length; j++) {
+                if(tabuleiro[i][j] != "+")
+                tabuleiro[i][j]="~";
+            }
+        }
+    }
+    
+
+
 }
