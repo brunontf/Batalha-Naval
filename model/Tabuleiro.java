@@ -5,26 +5,26 @@ import view.Print;
 
 
 public class Tabuleiro {
-    
-    private String[][] tabuleiro = new String[10][10];
-    private Ships ships = new Ships();
-    
+
+
     public Tabuleiro() {
-        posicionarNavios((int) ships.getLancha());
         preencherTabuleiro();
-        Print.imprimirTabuleiro(tabuleiro);
     }
 
-    void posicionarNavios(int quantidadeNavios) {
-        for (int i = 0; i < quantidadeNavios; i++) {
-            int linhaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            int colunaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            if (tabuleiro[linhaAleatoria][colunaAleatoria] == null) {
-                tabuleiro[linhaAleatoria][colunaAleatoria] = "+";
-            } else {
-                i = i - 1;
-            }
-        }
+    private String[][] tabuleiro = new String[10][10];
+
+    public void setShoot(int line, int column, String shoot) {
+        this.tabuleiro[line][column] = shoot;
+    }
+
+    public void setNavios(int line, int column, String navio) {
+        this.tabuleiro[line][column] = navio;
+    }
+
+
+
+    public String[][] getTabuleiro() {
+        return tabuleiro;
     }
 
     void preencherTabuleiro() {
