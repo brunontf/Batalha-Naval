@@ -7,9 +7,10 @@ import view.Print;
 public class Tabuleiro {
     
     private String[][] tabuleiro = new String[10][10];
-
+    private Ships ships = new Ships();
+    
     public Tabuleiro() {
-        posicionarNavios(5);
+        posicionarNavios((int) ships.getLancha());
         preencherTabuleiro();
         Print.imprimirTabuleiro(tabuleiro);
     }
