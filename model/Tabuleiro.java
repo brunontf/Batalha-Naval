@@ -14,6 +14,10 @@ public class Tabuleiro {
         this.tabuleiro[line][column] = shoot;
     }
 
+    public void setNavios(int line, int column, String navio) {
+        this.tabuleiro[line][column] = navio;
+    }
+
     public Tabuleiro() {
         preencherTabuleiro();
     }

@@ -24,12 +24,12 @@ public class TabuleiroController {
         }
     }
 
-    public void posicionarNavios(int quantidadeNavios) {
-        for (int i = 0; i < quantidadeNavios; i++) {
+    public void posicionarBarcos(int quantidadeBarcos) {
+        for (int i = 0; i < quantidadeBarcos; i++) {
             int linhaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
             int colunaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
             if (tabuleiro.getTabuleiro()[linhaAleatoria][colunaAleatoria] == null) {
-                tabuleiro[linhaAleatoria][colunaAleatoria] = "+";
+                tabuleiro.setNavios(linhaAleatoria,colunaAleatoria,"+");
             } else {
                 i = i - 1;
             }
