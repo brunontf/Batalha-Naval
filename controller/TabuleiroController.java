@@ -2,11 +2,13 @@ package controller;
 
 import model.Tabuleiro;
 import util.ConsoleUIHelper;
+import util.Util;
 
 import java.util.Scanner;
 
 public class TabuleiroController {
-    Tabuleiro tabuleiro = new Tabuleiro();
+    private Tabuleiro tabuleiro = new Tabuleiro();
+
 
     public boolean shooting(){
         int lineShoot = ConsoleUIHelper.askInt("Which line?");
@@ -19,6 +21,18 @@ public class TabuleiroController {
             tabuleiro.setShoot(lineShoot, columnShoot, "-");
             System.out.println("Errou, mais sorte na proxima vez.");
             return false;
+        }
+    }
+
+    public void posicionarNavios(int quantidadeNavios) {
+        for (int i = 0; i < quantidadeNavios; i++) {
+            int linhaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
+            int colunaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
+            if (tabuleiro.getTabuleiro()[linhaAleatoria][colunaAleatoria] == null) {
+                tabuleiro[linhaAleatoria][colunaAleatoria] = "+";
+            } else {
+                i = i - 1;
+            }
         }
     }
 

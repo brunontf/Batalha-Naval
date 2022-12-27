@@ -8,6 +8,11 @@ public class Player {
         this.tabuleiro = tabuleiro;
     }
 
-    
-    
+    public Tabuleiro getTabuleiro() {
+        return tabuleiro;
+    }
+
+    public void setTabuleiro(Tabuleiro tabuleiro) {
+        this.tabuleiro = tabuleiro;
+    }
 }
