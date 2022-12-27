@@ -15,20 +15,12 @@ public class Tabuleiro {
         this.tabuleiro[line][column] = shoot;
     }
 
-    public Tabuleiro() {
-        preencherTabuleiro();
+    public void setNavios(int line, int column, String navio) {
+        this.tabuleiro[line][column] = navio;
     }
 
-    void posicionarNavios(int quantidadeNavios) {
-        for (int i = 0; i < quantidadeNavios; i++) {
-            int linhaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            int colunaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            if (tabuleiro[linhaAleatoria][colunaAleatoria] == null) {
-                tabuleiro[linhaAleatoria][colunaAleatoria] = "+";
-            } else {
-                i = i - 1;
-            }
-        }
+    public Tabuleiro() {
+        preencherTabuleiro();
     }
 
     void preencherTabuleiro() {
