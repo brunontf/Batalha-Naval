@@ -4,8 +4,10 @@ import util.Util;
 import view.Print;
 
 public class Tabuleiro {
-    public String[][] getTabuleiro() {
-        return tabuleiro;
+
+
+    public Tabuleiro() {
+        preencherTabuleiro();
     }
 
     private String[][] tabuleiro = new String[10][10];
@@ -18,8 +20,10 @@ public class Tabuleiro {
         this.tabuleiro[line][column] = navio;
     }
 
-    public Tabuleiro() {
-        preencherTabuleiro();
+
+
+    public String[][] getTabuleiro() {
+        return tabuleiro;
     }
 
     void preencherTabuleiro() {

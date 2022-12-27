@@ -22,15 +22,11 @@ public class Print {
     }
     public static void menu() {
         ConsoleUIHelper.drawHeader("Batalha Naval", 100);
-        int option = ConsoleUIHelper.askChooseOption("Quem jogará primeiro, humano ou máquina?", "Humano", "Máquina");
-        Tabuleiro tabuleiro = new Tabuleiro();
-        Player player = new Player();
-        Player bot = new Player();
-        while (true){
-            imprimirTabuleiro(player.getTabuleiro().getTabuleiro());
 
-            break;
-        }
+    }
+    public static void regras(){
+        System.out.println("regras");
+
     }
 
 }

@@ -9,6 +9,13 @@ import java.util.Scanner;
 public class TabuleiroController {
     private Tabuleiro tabuleiro = new Tabuleiro();
 
+    public static int option() {
+        return ConsoleUIHelper.askChooseOption("Quem jogará primeiro, humano ou máquina?", "Humano", "Máquina");
+    }
+    public static boolean regras() {
+        return ConsoleUIHelper.askConfirm("Deseja ler as regras?", "Sim", "Não");
+    }
+
 
     public boolean shooting(){
         int lineShoot = ConsoleUIHelper.askInt("Which line?");

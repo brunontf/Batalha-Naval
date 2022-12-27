@@ -1,15 +1,21 @@
 package model;
 
+import controller.TabuleiroController;
+import view.Print;
+
 public class Player {
-    
     Tabuleiro tabuleiro = new Tabuleiro();
 
+
     public Player() {
-        this.tabuleiro = tabuleiro;
+        if (TabuleiroController.regras()){
+            Print.regras();
+        }
+
     }
 
-    public Tabuleiro getTabuleiro() {
-        return tabuleiro;
+    public String[][] getTabuleiro() {
+        return tabuleiro.getTabuleiro();
     }
 
     public void setTabuleiro(Tabuleiro tabuleiro) {
