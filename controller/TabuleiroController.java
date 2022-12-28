@@ -22,6 +22,7 @@ public class TabuleiroController {
         Boolean continuarJogada = true;
         while(continuarJogada){
             continuarJogada = shooting(player);
+            System.out.println(player.getJogadasFeitas());
             
         }
     }
@@ -31,14 +32,17 @@ public class TabuleiroController {
         int lineShoot= -9;
         int columnShoot= -9;
 
-        if (player.getNome()==1){
-            String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
-            lineShoot = Util.returnInt(line);
-            columnShoot = ConsoleUIHelper.askInt("Which column?");
-        } else{
-            lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
-            columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
-        }
+        do{
+            if (player.getNome()==1){
+                String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
+                lineShoot = Util.returnInt(line);
+                columnShoot = ConsoleUIHelper.askInt("Which column?");
+            } else{
+                lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
+                columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
+            }
+
+        } while(jogadaUnica(lineShoot,columnShoot,player));
 
         if (player.getTabuleiro()[lineShoot][columnShoot] == "+"){
             player.getMatriz().setShoot(lineShoot, columnShoot, "#");
@@ -69,6 +73,17 @@ public class TabuleiroController {
         return true;
     }
     
-
+    public static Boolean jogadaUnica(int lineShoot, int columnShoot, Player player) {
+        String line = String.valueOf(lineShoot);
+        String column = String.valueOf(columnShoot);
+        Object jogada = line + column;
+        if ( player.getJogadasFeitas().contains(jogada)){
+            Print.printMessage(player, "Jogada já realizada, por favor selecione outros valores");
+            return true;
+        } else {
+            player.getJogadasFeitas().add(jogada);
+            return false;
+        }
+    }
 
 }
