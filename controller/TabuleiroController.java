@@ -40,21 +40,20 @@ public class TabuleiroController {
             columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
         }
 
-        if(player.getTabuleiro()[lineShoot][columnShoot] == "+"){
+        if (player.getTabuleiro()[lineShoot][columnShoot] == "+"){
             player.getMatriz().setShoot(lineShoot, columnShoot, "#");
             
             if( verificarVitoria(player.getTabuleiro())){
-                System.out.println("Parabéns você ganhou!");
+                Print.printMessage(player,"\nParabéns você ganhou!");
                 Print.imprimirTabuleiro(player.getTabuleiro());
                 System.exit(0);
             }
             
-            System.out.println("Acertou em cheio, tem direito a outra jogada.");
-            Print.imprimirTabuleiro(player.getTabuleiro());
+            Print.printMessage(player, "\nAcertou em cheio, tem direito a outra jogada.");
             return true;
         } else {
             player.getMatriz().setShoot(lineShoot, columnShoot, "-");
-            System.out.println("Errou, mais sorte na proxima vez.");
+            Print.printMessage(player, "\nErrou, mais sorte na proxima vez.");
             return false;
         }
     }

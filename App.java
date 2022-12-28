@@ -10,7 +10,6 @@ public class App {
         Player player = new Player("player");
         Player bot = new Player("bot");
 
-        
         Print.menu();
         if (TabuleiroController.lerRegras()){
             Print.regras();
