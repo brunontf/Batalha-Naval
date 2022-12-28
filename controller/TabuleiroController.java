@@ -31,7 +31,7 @@ public class TabuleiroController {
         int lineShoot= -9;
         int columnShoot= -9;
 
-        if (player.getNome()==0){
+        if (player.getNome()==1){
             String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
             lineShoot = Util.returnInt(line);
             columnShoot = ConsoleUIHelper.askInt("Which column?");
@@ -50,6 +50,7 @@ public class TabuleiroController {
             }
             
             System.out.println("Acertou em cheio, tem direito a outra jogada.");
+            Print.imprimirTabuleiro(player.getTabuleiro());
             return true;
         } else {
             player.getMatriz().setShoot(lineShoot, columnShoot, "-");

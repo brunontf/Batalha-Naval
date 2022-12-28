@@ -15,15 +15,12 @@ public class App {
         if (TabuleiroController.lerRegras()){
             Print.regras();
         }
-
-        Boolean whoStarts = TabuleiroController.option() != 0;
-        System.out.println(whoStarts);
-
+        Boolean whoStarts = TabuleiroController.option() == 0;
+        
         do{
             if(whoStarts){ // vez do player jogar
-                Print.imprimirTabuleiro(player.getTabuleiro());
-                TabuleiroController.jogada(bot);
                 Print.imprimirTabuleiro(bot.getTabuleiro());
+                TabuleiroController.jogada(bot);
                 whoStarts = false;
             }else{
                 TabuleiroController.jogada(player);
