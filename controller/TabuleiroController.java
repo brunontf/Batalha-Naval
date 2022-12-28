@@ -42,6 +42,7 @@ public class TabuleiroController {
 
         if(player.getTabuleiro()[lineShoot][columnShoot] == "+"){
             player.getMatriz().setShoot(lineShoot, columnShoot, "#");
+            
             if( verificarVitoria(player.getTabuleiro())){
                 System.out.println("Parabéns você ganhou!");
                 Print.imprimirTabuleiro(player.getTabuleiro());
@@ -61,11 +62,11 @@ public class TabuleiroController {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
                 if(tabuleiro[i][j] == "+"){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
     
 

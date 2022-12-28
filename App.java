@@ -21,6 +21,7 @@ public class App {
 
         do{
             if(whoStarts){ // vez do player jogar
+                Print.imprimirTabuleiro(player.getTabuleiro());
                 TabuleiroController.jogada(bot);
                 Print.imprimirTabuleiro(bot.getTabuleiro());
                 whoStarts = false;
