@@ -1,46 +1,72 @@
 package controller;
 
+import model.Player;
 import model.Tabuleiro;
 import util.ConsoleUIHelper;
 import util.Util;
+import view.Print;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TabuleiroController {
-    private Tabuleiro tabuleiro = new Tabuleiro();
 
     public static int option() {
         return ConsoleUIHelper.askChooseOption("Quem jogará primeiro, humano ou máquina?", "Humano", "Máquina");
     }
-    public static boolean regras() {
+    public static boolean lerRegras() {
         return ConsoleUIHelper.askConfirm("Deseja ler as regras?", "Sim", "Não");
     }
 
+    public static void jogada(Player player) {
+        Boolean continuarJogada = true;
+        while(continuarJogada){
+            continuarJogada = shooting(player);
+            
+        }
+    }
 
-    public boolean shooting(){
-        int lineShoot = ConsoleUIHelper.askInt("Which line?");
-        int columnShoot = ConsoleUIHelper.askInt("Which column?");
-        if(tabuleiro.getTabuleiro()[lineShoot][columnShoot] == "+"){
-            tabuleiro.setShoot(lineShoot, columnShoot, "#");
+
+    public static boolean shooting(Player player){
+        int lineShoot= -9;
+        int columnShoot= -9;
+
+        if (player.getNome()==0){
+            lineShoot = ConsoleUIHelper.askInt("Which line?");
+            columnShoot = ConsoleUIHelper.askInt("Which column?");
+        } else{
+            lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
+            columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
+        }
+
+        if(player.getTabuleiro()[lineShoot][columnShoot] == "+"){
+            player.getMatriz().setShoot(lineShoot, columnShoot, "#");
+            if( verificarVitoria(player.getTabuleiro())){
+                System.out.println("Parabéns você ganhou!");
+                Print.imprimirTabuleiro(player.getTabuleiro());
+                System.exit(0);
+            }
+            
             System.out.println("Acertou em cheio, tem direito a outra jogada.");
             return true;
         } else {
-            tabuleiro.setShoot(lineShoot, columnShoot, "-");
+            player.getMatriz().setShoot(lineShoot, columnShoot, "-");
             System.out.println("Errou, mais sorte na proxima vez.");
             return false;
         }
     }
 
-    public void posicionarBarcos(int quantidadeBarcos) {
-        for (int i = 0; i < quantidadeBarcos; i++) {
-            int linhaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
-            int colunaAleatoria = Util.intAleatorio(0, tabuleiro.getTabuleiro().length);
-            if (tabuleiro.getTabuleiro()[linhaAleatoria][colunaAleatoria] == null) {
-                tabuleiro.setNavios(linhaAleatoria,colunaAleatoria,"+");
-            } else {
-                i = i - 1;
+    public static Boolean verificarVitoria(String[][] tabuleiro) {
+        for (int i = 0; i < tabuleiro.length; i++) {
+            for (int j = 0; j < tabuleiro.length; j++) {
+                if(tabuleiro[i][j] == "+"){
+                    return true;
+                }
             }
         }
+        return false;
     }
+    
+
 
 }

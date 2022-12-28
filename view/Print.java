@@ -17,8 +17,6 @@ public class Print {
             }
             System.out.println();
         }
-
-        // IMPRIMIR OS NOMES DAS LINHAS/COLUNAS
     }
     public static void menu() {
         ConsoleUIHelper.drawHeader("Batalha Naval", 100);
