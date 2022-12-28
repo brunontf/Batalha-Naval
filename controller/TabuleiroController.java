@@ -32,7 +32,8 @@ public class TabuleiroController {
         int columnShoot= -9;
 
         if (player.getNome()==0){
-            lineShoot = ConsoleUIHelper.askInt("Which line?");
+            String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
+            lineShoot = Util.returnInt(line);
             columnShoot = ConsoleUIHelper.askInt("Which column?");
         } else{
             lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
