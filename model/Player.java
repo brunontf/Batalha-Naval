@@ -20,6 +20,9 @@ public class Player {
     public String[][] getTabuleiro() {
         return tabuleiro.getTabuleiro();
     }
+    public String[][] getTabuleiroEmBranco() {
+        return tabuleiro.getTabuleiroEmBranco();
+    }
     public Tabuleiro getMatriz() {
         return tabuleiro;
     }

@@ -22,7 +22,7 @@ public class TabuleiroController {
         Boolean continuarJogada = true;
         while(continuarJogada){
             continuarJogada = shooting(player);
-            System.out.println(player.getJogadasFeitas());
+            System.out.println(player.getJogadasFeitas());// MOSTRARJOGADAS por enquanto
             
         }
     }
@@ -49,11 +49,12 @@ public class TabuleiroController {
             
             if( verificarVitoria(player.getTabuleiro())){
                 Print.printMessage(player,"\nParabéns você ganhou!");
-                Print.imprimirTabuleiro(player.getTabuleiro());
+                Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
                 System.exit(0);
             }
             
             Print.printMessage(player, "\nAcertou em cheio, tem direito a outra jogada.");
+            Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
             return true;
         } else {
             player.getMatriz().setShoot(lineShoot, columnShoot, "-");
