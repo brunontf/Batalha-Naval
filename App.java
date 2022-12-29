@@ -24,13 +24,11 @@ public class App {
                 whoStarts = false;
             }else{
                 TabuleiroController.jogada(player);
-                Print.printOwnerTabuleiro(player);
+                 Print.printOwnerTabuleiro(player);
                 Print.imprimirTabuleiro(player.getTabuleiro());
                 whoStarts = true;
             }
-
         }while(true);
-
     }
 
     

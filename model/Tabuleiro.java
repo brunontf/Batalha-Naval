@@ -1,5 +1,6 @@
 package model;
 
+import controller.TabuleiroController;
 import util.ConsoleUIHelper;
 import util.Util;
 import view.Print;
@@ -28,6 +29,7 @@ public class Tabuleiro {
         int i = 0;
         while(i<quantidadeBarcos){
             Print.imprimirTabuleiro(tabuleiro);
+            //TabuleiroController.askLine();
             String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
             int linhaEscolhida = Util.returnInt(line);
             int colunaEscolhida = ConsoleUIHelper.askInt("Which column?");

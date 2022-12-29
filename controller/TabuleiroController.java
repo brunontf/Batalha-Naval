@@ -35,22 +35,19 @@ public class TabuleiroController {
         boolean flag;
         do {
             if (player.getNome() == 1) {
-                    lineShoot = askLine(lineShoot);
-                    columnShoot = askColumn(columnShoot);
-                    flag = jogadaUnica(lineShoot, columnShoot, player);
-                    if (flag){
-                        continue;
-                    }
-                    break;
-               /*catch (InputMismatchException e) {
-                    System.out.println("Tipo errado, informe os valores corretamente.");
-                }*/
+                lineShoot = askLine(lineShoot);
+                columnShoot = askColumn(columnShoot);
+                flag = jogadaUnica(lineShoot, columnShoot, player);
+                if (flag) {
+                    continue;
+                }
+                break;
 
             } else {
                 lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
                 columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
                 flag = jogadaUnica(lineShoot, columnShoot, player);
-                if (flag){
+                if (flag) {
                     continue;
                 }
                 break;
@@ -100,35 +97,28 @@ public class TabuleiroController {
         }
     }
 
-    public static int askLine(int lineShoot){
+    public static int askLine(int lineShoot) {
         while (true) {
             try {
                 String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3).toUpperCase();
                 //lineShoot = Util.returnInt(line);
+                //int intLine = Integer.parseInt(line);
                 lineShoot = (int) line.charAt(0) - 65;
-                if (lineShoot < 0 || lineShoot > 9){
+                if (lineShoot < 0 || lineShoot > 9) {
                     throw new BoardException("Linha incorreta, digite uma opção entre A,B,C,D,E,F,G,H,I,J");
                 }
                 break;
-            }catch (BoardException e){
+            }/*catch (NumberFormatException e) {
+                System.out.println("Number format exception");
+            }*/ catch (BoardException e) {
                 System.out.println(e.getMessage());
             }
         }
         return lineShoot;
     }
 
-    public static int askColumn(int columnShoot){
-        while (true){
-            try {
-                columnShoot = ConsoleUIHelper.askInt("Which column?");
-                if (columnShoot < 0 || columnShoot > 9) {
-                    throw new BoardException("Coluna incorreta, digite uma opção entre 0,1,2,3,4,5,6,7,8,9");
-                }
-                break;
-            } catch (BoardException e){
-                System.out.println(e.getMessage());
-            }
-        }
+    public static int askColumn(int columnShoot) {
+        columnShoot = Util.askColumnUtil("Which column?");
         return columnShoot;
     }
 
