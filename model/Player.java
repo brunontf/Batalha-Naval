@@ -3,18 +3,17 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.TabuleiroController;
-import view.Print;
-
 public class Player {
     private Tabuleiro tabuleiro;
     private String nome;
     private List<Object> jogadasFeitas;
+    private int autoPosicionar;
 
-    public Player(String nome) {
+    public Player(String nome, int autoPosicionar) {
         this.nome = nome;
-        tabuleiro = new Tabuleiro();
+        this.autoPosicionar = autoPosicionar;
         jogadasFeitas = new ArrayList<>();
+        tabuleiro = new Tabuleiro(this.autoPosicionar);
     }
 
     public String[][] getTabuleiro() {
@@ -42,5 +41,8 @@ public class Player {
         return jogadasFeitas;
     }
 
+    public int getAutoPosicionar() {
+        return autoPosicionar;
+    }
     
 }

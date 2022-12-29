@@ -1,11 +1,8 @@
 package view;
 
-import controller.TabuleiroController;
 import model.Player;
-import model.Tabuleiro;
 import util.ConsoleUIHelper;
 
-import javax.swing.text.TabableView;
 
 public class Print {
     public static void imprimirTabuleiro(String [][] tabuleiro) {
@@ -28,6 +25,18 @@ public class Print {
         if( player.getNome()==1){
             System.out.println(message);
             ConsoleUIHelper.drawLine(100);
+        }
+    }
+    public static void print(String message) {
+            System.out.println(message);
+            ConsoleUIHelper.drawLine(100);
+    }
+    public static void printOwnerTabuleiro(Player player) {
+        ConsoleUIHelper.drawLine(100);
+        if(player.getNome()==0){
+            System.out.println("SEU TABULEIRO");
+        } else {
+            System.out.println("TABULEIRO DA MÁQUINA");
         }
     }
 

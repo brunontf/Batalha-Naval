@@ -1,5 +1,6 @@
 package model;
 
+import util.ConsoleUIHelper;
 import util.Util;
 import view.Print;
 
@@ -9,30 +10,59 @@ public class Tabuleiro {
     private String[][] tabuleiro;
     private String[][] tabuleiroEmBranco;
 
-    public Tabuleiro() {
+    public Tabuleiro(int autoPosicionar) {
         tabuleiro = new String[10][10];
         tabuleiroEmBranco = new String[10][10];
-        posicionarBarcos(5);
+        // meuTabuleiro = player.getTabuleiro();
         preencherTabuleiro(tabuleiro);
         preencherTabuleiro(tabuleiroEmBranco);
-        // Print.imprimirTabuleiro(tabuleiro);
+
+        if(autoPosicionar != 0){// posiciona automaticamente
+            posicionarBarcosAuto(5);
+        } else {
+            posicionarManualmente(5);
+        }
+    }
+
+    public void posicionarManualmente(int quantidadeBarcos) {
+        int i = 0;
+        while(i<quantidadeBarcos){
+            Print.imprimirTabuleiro(tabuleiro);
+            String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
+            int linhaEscolhida = Util.returnInt(line);
+            int colunaEscolhida = ConsoleUIHelper.askInt("Which column?");
+            if(checkLineCol(linhaEscolhida,colunaEscolhida)){
+                Print.print("Posição já escolhida, escolha outra por favor!\n");
+            } else{
+                setNavios(linhaEscolhida, colunaEscolhida);
+                i++;
+            }
+        }
+    }
+
+    public Boolean checkLineCol(int linhaEscolhida, int colunaEscolhida) {
+        if(tabuleiro[linhaEscolhida][colunaEscolhida] == "+"){
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
     public void preencherTabuleiro(String[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
-                if (tabuleiro[i][j] != "+")
-                    tabuleiro[i][j] = "~";
+                tabuleiro[i][j] = "~";
             }
         }
     }
 
-    public void posicionarBarcos(int quantidadeBarcos) {
+    public void posicionarBarcosAuto(int quantidadeBarcos) {
         for (int i = 0; i < quantidadeBarcos; i++) {
             int linhaAleatoria = Util.intAleatorio(0, tabuleiro.length);
             int colunaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            if (tabuleiro[linhaAleatoria][colunaAleatoria] == null) {
-                setNavios(linhaAleatoria,colunaAleatoria,"+");
+            if (tabuleiro[linhaAleatoria][colunaAleatoria] == "~") {
+                setNavios(linhaAleatoria,colunaAleatoria);
             } else {
                 i = i - 1;
             }
@@ -45,8 +75,8 @@ public class Tabuleiro {
         this.tabuleiroEmBranco[line][column] = shoot;
     }
 
-    public void setNavios(int line, int column, String navio) {
-        this.tabuleiro[line][column] = navio;
+    public void setNavios(int line, int column) {
+        this.tabuleiro[line][column] = "+";
     }
 
 

@@ -1,13 +1,9 @@
 package controller;
 
 import model.Player;
-import model.Tabuleiro;
 import util.ConsoleUIHelper;
 import util.Util;
 import view.Print;
-
-import java.util.Random;
-import java.util.Scanner;
 
 public class TabuleiroController {
 
@@ -22,7 +18,7 @@ public class TabuleiroController {
         Boolean continuarJogada = true;
         while(continuarJogada){
             continuarJogada = shooting(player);
-            System.out.println(player.getJogadasFeitas());// MOSTRARJOGADAS por enquanto
+            // System.out.println(player.getJogadasFeitas());// MOSTRAR JOGADAS por enquanto
             
         }
     }
