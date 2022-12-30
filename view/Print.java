@@ -25,6 +25,8 @@ public class Print {
         System.out.println("O jogador terá de posicionar os barcos de acordo com o tabuleiro (ex: C 5)");
         System.out.println("No jogo você não pode: \n1-Fazer jogadas repetidas \n2-Jogadas inexistentes \n3-Empatar(não há empates)");
         ConsoleUIHelper.drawLine(100);
+        ConsoleUIHelper.askSimpleInput("Digite algo para sair das regras");
+        ConsoleUIHelper.drawLine(100);
     }
     public static void printMessage(Player player, String message) {
         if( !player.getNome()){

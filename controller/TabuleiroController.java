@@ -20,8 +20,6 @@ public class TabuleiroController {
         Boolean continuarJogada = true;
         while (continuarJogada) {
             continuarJogada = shooting(player);
-            // System.out.println(player.getJogadasFeitas());// MOSTRAR JOGADAS por enquanto
-
         }
     }
 
@@ -39,7 +37,6 @@ public class TabuleiroController {
                     continue;
                 }
                 break;
-
             } else {
                 lineShoot = Util.intAleatorio(0, player.getMatriz().length);
                 columnShoot = Util.intAleatorio(0, player.getMatriz().length);
@@ -98,16 +95,12 @@ public class TabuleiroController {
         while (true) {
             try {
                 String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3).toUpperCase();
-                //lineShoot = Util.returnInt(line);
-                //int intLine = Integer.parseInt(line);
                 lineShoot = (int) line.charAt(0) - 65;
                 if (lineShoot < 0 || lineShoot > 9) {
                     throw new BoardException("Linha incorreta, digite uma opção entre A,B,C,D,E,F,G,H,I,J");
                 }
                 break;
-            }/*catch (NumberFormatException e) {
-                System.out.println("Number format exception");
-            }*/ catch (BoardException e) {
+            } catch (BoardException e) {
                 System.out.println(e.getMessage());
             }
         }
