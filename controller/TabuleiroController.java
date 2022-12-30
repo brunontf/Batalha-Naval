@@ -48,8 +48,8 @@ public class TabuleiroController {
             }
         } while (true);
 
-        if (player.getMatriz()[lineShoot][columnShoot].equals("+")) {
-            player.getTabuleiro().setShoot(lineShoot, columnShoot, "#");
+        if (player.getMatriz()[lineShoot][columnShoot].equals("\u26F5")) {
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, "\uD83D\uDCA5");
 
             if (verificarVitoria(player.getMatriz())) {
                 Print.printMessage(player, "\nParabéns você ganhou!");
@@ -61,7 +61,7 @@ public class TabuleiroController {
             Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
             return true;
         } else {
-            player.getTabuleiro().setShoot(lineShoot, columnShoot, "-");
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, "🕳️");
             Print.printMessage(player, "\nErrou, mais sorte na proxima vez.");
             return false;
         }
@@ -70,7 +70,7 @@ public class TabuleiroController {
     public static Boolean verificarVitoria(String[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
-                if (tabuleiro[i][j].equals("+")) {
+                if (tabuleiro[i][j].equals("\u26F5")) {
                     return false;
                 }
             }

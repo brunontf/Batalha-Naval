@@ -19,16 +19,16 @@ public class Tabuleiro {
         preencherTabuleiro(tabuleiroEmBranco);
 
         if (autoPosicionar != 0) {// posiciona automaticamente
-            posicionarBarcosAuto(5);
+            posicionarBarcosAuto(10);
         } else {
-            posicionarManualmente(5);
+            posicionarManualmente(10);
         }
     }
 
     public void preencherTabuleiro(String[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
-                tabuleiro[i][j] = "~";
+                tabuleiro[i][j] = "\uD83C\uDF0A"; //onda
             }
         }
     }
@@ -37,7 +37,7 @@ public class Tabuleiro {
         for (int i = 0; i < quantidadeBarcos; i++) {
             int linhaAleatoria = Util.intAleatorio(0, tabuleiro.length);
             int colunaAleatoria = Util.intAleatorio(0, tabuleiro.length);
-            if (tabuleiro[linhaAleatoria][colunaAleatoria].equals("~")) {
+            if (tabuleiro[linhaAleatoria][colunaAleatoria].equals("\uD83C\uDF0A")) {
                 setNavios(linhaAleatoria, colunaAleatoria);
             } else {
                 i = i - 1;
@@ -61,7 +61,7 @@ public class Tabuleiro {
     }
 
     public Boolean checkLineCol(int linhaEscolhida, int colunaEscolhida) {
-        return tabuleiro[linhaEscolhida][colunaEscolhida].equals("+");
+        return tabuleiro[linhaEscolhida][colunaEscolhida].equals("\u26F5");
     }
 
     public void setShoot(int line, int column, String shoot) {
@@ -70,7 +70,7 @@ public class Tabuleiro {
     }
 
     public void setNavios(int line, int column) {
-        this.tabuleiro[line][column] = "+";
+        this.tabuleiro[line][column] = "\u26F5"; //barco
     }
 
     public String[][] getTabuleiro() {

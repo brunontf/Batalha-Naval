@@ -3,10 +3,9 @@ package view;
 import model.Player;
 import util.ConsoleUIHelper;
 
-
 public class Print {
     public static void imprimirTabuleiro(String [][] tabuleiro) {
-        System.out.println("\n  "+" 0 "+"1 "+"2 "+"3 "+"4 "+"5 "+"6 "+"7 "+"8 "+"9");
+        System.out.println("\n  "+" 0️⃣"+" 1️⃣"+" 2️⃣ "+"3️⃣ "+"4️⃣ "+"5️⃣ "+"6️⃣ "+"7️⃣ "+"8️⃣ "+"9️⃣");
         for (int i = 0; i < tabuleiro.length; i++) {
             System.out.print((char)(i+65) + "  ");
             for (int j = 0; j < tabuleiro[i].length; j++) {
@@ -20,7 +19,7 @@ public class Print {
     }
     public static void regras(){
         ConsoleUIHelper.drawHeader("Regras", 100);
-        System.out.println("Você como jogador pode inicialmente colocar 5 barcos manualmente ou pode setar eles automaticamente.");
+        System.out.println("Você como jogador pode inicialmente colocar 10 barcos manualmente ou pode setar eles automaticamente.");
         System.out.println("O jogo funciona em turnos, onde o jogador faz sua jogada e em seguida o bot faz a dele.");
         System.out.println("O jogador terá de posicionar os barcos de acordo com o tabuleiro (ex: C 5)");
         System.out.println("No jogo você não pode: \n1-Fazer jogadas repetidas \n2-Jogadas inexistentes \n3-Empatar(não há empates)");
@@ -41,10 +40,9 @@ public class Print {
     public static void printOwnerTabuleiro(Player player) {
         ConsoleUIHelper.drawLine(100);
         if(player.getNome()){
-            System.out.println("SEU TABULEIRO");
+            System.out.println("\u2620 SEU TABULEIRO ");
         } else {
-            System.out.println("TABULEIRO DA MÁQUINA");
+            System.out.println("\uD83E\uDD16 TABULEIRO DA MÁQUINA");
         }
     }
-
 }
