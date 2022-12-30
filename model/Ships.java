@@ -7,15 +7,16 @@ public class Ships {
     private Object submarino;// 2 espaços 4x
     private Object lancha = 5; // 1 espaço 5x
 
-    public Ships(Object lancha){
-        this.lancha=lancha;
+    public Ships(Object lancha) {
+        this.lancha = lancha;
     }
-    public Ships(){}
+
+    public Ships() {
+    }
 
     public Object getLancha() {
         return lancha;
     }
 
-    
 
 }
