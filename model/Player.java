@@ -26,7 +26,7 @@ public class Player {
         return tabuleiro;
     }
     public int getNome(){
-        if(nome == "player"){
+        if(nome.equals("player")){
             return 0;
         }else{
             return 1;

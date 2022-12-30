@@ -19,7 +19,12 @@ public class Print {
         ConsoleUIHelper.drawHeader("Batalha Naval", 100);
     }
     public static void regras(){
-        System.out.println("regras");
+        ConsoleUIHelper.drawHeader("Regras", 100);
+        System.out.println("Você como jogador pode inicialmente colocar 5 barcos manualmente ou pode setar eles automaticamente.");
+        System.out.println("O jogo funciona em turnos, onde o jogador faz sua jogada e em seguida o bot faz a dele.");
+        System.out.println("O jogador terá de posicionar os barcos de acordo com o tabuleiro (ex: C 5)");
+        System.out.println("No jogo você não pode: \n1-Fazer jogadas repetidas \n2-Jogadas inexistentes \n3-Empatar(não há empates)");
+        ConsoleUIHelper.drawLine(100);
     }
     public static void printMessage(Player player, String message) {
         if( player.getNome()==1){

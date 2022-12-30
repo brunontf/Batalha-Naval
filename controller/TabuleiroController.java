@@ -76,7 +76,7 @@ public class TabuleiroController {
     public static Boolean verificarVitoria(String[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
-                if (tabuleiro[i][j] == "+") {
+                if (tabuleiro[i][j].equals("+")) {
                     return false;
                 }
             }
