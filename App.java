@@ -25,7 +25,7 @@ public class App {
             } else {
                 TabuleiroController.jogada(player);
                 Print.printOwnerTabuleiro(player);
-                Print.imprimirTabuleiro(player.getTabuleiro());
+                Print.imprimirTabuleiro(player.getMatriz());
                 whoStarts = true;
             }
         } while (true);

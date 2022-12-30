@@ -6,9 +6,6 @@ import util.ConsoleUIHelper;
 import util.Util;
 import view.Print;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class TabuleiroController {
 
     public static int option() {
@@ -44,8 +41,8 @@ public class TabuleiroController {
                 break;
 
             } else {
-                lineShoot = Util.intAleatorio(0, player.getTabuleiro().length);
-                columnShoot = Util.intAleatorio(0, player.getTabuleiro().length);
+                lineShoot = Util.intAleatorio(0, player.getMatriz().length);
+                columnShoot = Util.intAleatorio(0, player.getMatriz().length);
                 flag = jogadaUnica(lineShoot, columnShoot, player);
                 if (flag) {
                     continue;
@@ -54,10 +51,10 @@ public class TabuleiroController {
             }
         } while (true);
 
-        if (player.getTabuleiro()[lineShoot][columnShoot].equals("+")) {
-            player.getMatriz().setShoot(lineShoot, columnShoot, "#");
+        if (player.getMatriz()[lineShoot][columnShoot].equals("+")) {
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, "#");
 
-            if (verificarVitoria(player.getTabuleiro())) {
+            if (verificarVitoria(player.getMatriz())) {
                 Print.printMessage(player, "\nParabéns você ganhou!");
                 Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
                 System.exit(0);
@@ -67,7 +64,7 @@ public class TabuleiroController {
             Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
             return true;
         } else {
-            player.getMatriz().setShoot(lineShoot, columnShoot, "-");
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, "-");
             Print.printMessage(player, "\nErrou, mais sorte na proxima vez.");
             return false;
         }

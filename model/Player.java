@@ -16,13 +16,13 @@ public class Player {
         tabuleiro = new Tabuleiro(this.autoPosicionar);
     }
 
-    public String[][] getTabuleiro() {
+    public String[][] getMatriz() {
         return tabuleiro.getTabuleiro();
     }
     public String[][] getTabuleiroEmBranco() {
         return tabuleiro.getTabuleiroEmBranco();
     }
-    public Tabuleiro getMatriz() {
+    public Tabuleiro getTabuleiro() {
         return tabuleiro;
     }
     public int getNome(){
