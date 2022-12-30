@@ -61,7 +61,7 @@ public class TabuleiroController {
             Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
             return true;
         } else {
-            player.getTabuleiro().setShoot(lineShoot, columnShoot, "-");
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, "o");
             Print.printMessage(player, "\nErrou, mais sorte na proxima vez.");
             return false;
         }
