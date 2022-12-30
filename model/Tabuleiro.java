@@ -29,10 +29,8 @@ public class Tabuleiro {
         int i = 0;
         while(i<quantidadeBarcos){
             Print.imprimirTabuleiro(tabuleiro);
-            //TabuleiroController.askLine();
-            String line = ConsoleUIHelper.askNoEmptyInput("Which line?", 3);
-            int linhaEscolhida = Util.returnInt(line);
-            int colunaEscolhida = ConsoleUIHelper.askInt("Which column?");
+            int linhaEscolhida = TabuleiroController.askLine(-9);
+            int colunaEscolhida = TabuleiroController.askColumn(-9);
             if(checkLineCol(linhaEscolhida,colunaEscolhida)){
                 Print.print("Posição já escolhida, escolha outra por favor!\n");
             } else{
