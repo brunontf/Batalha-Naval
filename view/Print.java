@@ -30,7 +30,7 @@ public class Print {
     public static void printMessage(Player player, String message) {
         if( !player.getNome()){
             System.out.println(message);
-            ConsoleUIHelper.drawLine(100);
+            //ConsoleUIHelper.drawLine(100);
         }
     }
     public static void print(String message) {

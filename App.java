@@ -24,7 +24,7 @@ public class App {
 
         do {
             if (whoStarts) { // vez do player jogar
-                Print.imprimirTabuleiro(bot.getMatriz()); // TEMP CHEAT - DELETE AFTER
+                //Print.imprimirTabuleiro(bot.getMatriz()); // TEMP CHEAT - DELETE AFTER
                 Print.printOwnerTabuleiro(bot);
                 Print.imprimirTabuleiro(bot.getTabuleiroEmBranco());
                 TabuleiroController.jogada(bot);
