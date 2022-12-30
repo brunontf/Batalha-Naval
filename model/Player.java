@@ -25,12 +25,8 @@ public class Player {
     public Tabuleiro getTabuleiro() {
         return tabuleiro;
     }
-    public int getNome(){
-        if(nome.equals("player")){
-            return 0;
-        }else{
-            return 1;
-        }
+    public boolean getNome(){
+        return nome.equals("player");
     }
 
     public void setTabuleiro(Tabuleiro tabuleiro) {

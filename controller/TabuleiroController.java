@@ -31,7 +31,7 @@ public class TabuleiroController {
         int columnShoot = -9;
         boolean flag;
         do {
-            if (player.getNome() == 1) {
+            if (!player.getNome()) {
                 lineShoot = askLine(lineShoot);
                 columnShoot = askColumn(columnShoot);
                 flag = jogadaUnica(lineShoot, columnShoot, player);

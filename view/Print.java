@@ -27,7 +27,7 @@ public class Print {
         ConsoleUIHelper.drawLine(100);
     }
     public static void printMessage(Player player, String message) {
-        if( player.getNome()==1){
+        if( !player.getNome()){
             System.out.println(message);
             ConsoleUIHelper.drawLine(100);
         }
@@ -38,7 +38,7 @@ public class Print {
     }
     public static void printOwnerTabuleiro(Player player) {
         ConsoleUIHelper.drawLine(100);
-        if(player.getNome()==0){
+        if(player.getNome()){
             System.out.println("SEU TABULEIRO");
         } else {
             System.out.println("TABULEIRO DA MÁQUINA");
