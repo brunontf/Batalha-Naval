@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("\uD83D\uDCA5"); //explosion
         System.out.println("\u26F5");//boat
-        System.out.println("\uD83C\uDF0A");
+        System.out.println("\ud83c\udf0a");// wave
         System.out.println(	"\uD83E\uDD16");//robot
         System.out.println(	"\uD83C\uDF00");// ciclone
         //System.out.println(	"\uD83D\uDD30");//simbolo iniciante
