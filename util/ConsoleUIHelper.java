@@ -76,8 +76,11 @@ public class ConsoleUIHelper {
             try {
                 number = sc.nextInt();
             } catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("Informação incorreta, digite apenas numeros!");
                 number = null;
             }
+
         } while (number == null);
         return number;
     }
