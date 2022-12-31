@@ -1,18 +1,13 @@
+//import com.vdurmont.emoji.EmojiParser;
 import controller.TabuleiroController;
+import enums.Emojis;
 import model.Player;
 import util.ConsoleUIHelper;
 import view.Print;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("\uD83D\uDCA5"); //explosion
-        System.out.println("\u26F5");//boat
-        System.out.println("\uD83C\uDF0A");
-        System.out.println(	"\uD83E\uDD16");//robot
-        System.out.println(	"\uD83C\uDF00");// ciclone
-        //System.out.println(	"\uD83D\uDD30");//simbolo iniciante
-        System.out.println(	"\u2620".toUpperCase());//pirate 1
-
+        Emojis.isEmoji = ConsoleUIHelper.askConfirm("Sim para emojis e Não para simbolos", "Sim", "Não");
         Print.menu();
         if (TabuleiroController.lerRegras()) {
             Print.regras();

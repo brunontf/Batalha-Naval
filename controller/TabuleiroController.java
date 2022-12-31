@@ -1,5 +1,6 @@
 package controller;
 
+import enums.Emojis;
 import exceptions.BoardException;
 import model.Player;
 import util.ConsoleUIHelper;
@@ -48,8 +49,8 @@ public class TabuleiroController {
             }
         } while (true);
 
-        if (player.getMatriz()[lineShoot][columnShoot].equals("\u26F5")) {
-            player.getTabuleiro().setShoot(lineShoot, columnShoot, "\uD83D\uDCA5");
+        if (player.getMatriz()[lineShoot][columnShoot].equals(Emojis.BOAT.toString())) {
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, Emojis.EXPLOSION.toString());
 
             if (verificarVitoria(player.getMatriz())) {
                 Print.printMessage(player, "\nParabéns você ganhou!");
@@ -61,7 +62,7 @@ public class TabuleiroController {
             Print.imprimirTabuleiro(player.getTabuleiroEmBranco());
             return true;
         } else {
-            player.getTabuleiro().setShoot(lineShoot, columnShoot, "🕳️");
+            player.getTabuleiro().setShoot(lineShoot, columnShoot, Emojis.HOLE.toString());
             Print.printMessage(player, "\nErrou, mais sorte na proxima vez.");
             return false;
         }
@@ -70,7 +71,7 @@ public class TabuleiroController {
     public static Boolean verificarVitoria(String[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
-                if (tabuleiro[i][j].equals("\u26F5")) {
+                if (tabuleiro[i][j].equals(Emojis.BOAT.toString())) {
                     return false;
                 }
             }
