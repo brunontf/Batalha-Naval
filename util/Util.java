@@ -2,6 +2,7 @@ package util;
 
 import exceptions.BoardException;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -41,4 +42,19 @@ public class Util {
         } while (number == null);
         return number;
     }
+
+    public static ArrayList<String> generateRandomPositions(int nBarcos, int nbuttons) {
+        ArrayList<String> randomList = new ArrayList<>();
+        for (int i = 0; i < nBarcos; i++) {
+            int randomNumber= Util.intAleatorio(0, nbuttons);
+            String position = String.valueOf(randomNumber);
+            if (! randomList.contains(position)) {
+                randomList.add(position);
+            } else {
+                i = i - 1;
+            }
+        }
+        return randomList;
+    }
+    
 }
