@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import enums.Emojis;
 import model.Player;
 import util.ConsoleUIHelper;
@@ -57,4 +62,16 @@ public class Print {
             System.out.println(msg + " TABULEIRO DA MÁQUINA");
         }
     }
+    public static void ShowMessage(Object message) {
+        JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, message);
+    }
+    public static String GUIRules = """
+            Primeiramente, no menu opções você deve escolher se deseja posicionar as embarcações manualmente ou não, bem como começar primeiro.
+            Caso tenha escolhido posicionar manualmente, posicione no tabuleiro da esquerda suas 10 embarcações e, então, comece a jogar no tabuleiro da direita.
+            Caso tenha escolhido posicionar automaticamente, inicie já jogando no tabuleiro da direita.
+            A cada rodada você terá direito a um chute, e, caso acerte, ganhará um chute extra.
+            Ganha quem descobrir todas as 10 embarcações inimigas primeiro.
+            Bom jogo!
+            """;
 }
