@@ -128,10 +128,10 @@ public class GUIController {
 
     public static void setBarcosAuto(GUIPlayer player, GUIPlayer bot, boolean start) {
         player.setBarcosArray(Util.generateRandomPositions(player.getnBarcos(),player.getButtons().length));
-        for (String barco : player.getBarcosArray()) {
-            // player.setBarcoIcon(imgs.get(0), Integer.parseInt(barco)); // CHEATMODE
-        }
         if (start){
+            for (String barco : player.getBarcosArray()) {
+                player.setBarcoIcon(imgs.get(0), Integer.parseInt(barco));
+            }
             shoot(bot, player);
         }
     }
